@@ -5,6 +5,7 @@ from ml_data.config import RAW_DATA_DIR, CLEAN_DATA_DIR, LOGS_DIR
 import logging
 from datetime import datetime
 
+
 def setup_logging():
     log_file_path = LOGS_DIR / f"{datetime.today()}.log"
 
@@ -33,7 +34,7 @@ def setup_logging():
 def main():
     logger = logging.getLogger(__name__)
 
-    logger.info('Ingesting raw data')
+    logger.info("Ingesting raw data")
     df_raw = ingest(path=RAW_DATA_DIR / "data.csv")
 
     logger.info("Cleaning raw data")
@@ -42,6 +43,7 @@ def main():
     logger.info("Writing cleaned data")
     write(df=df_cleaned, path=CLEAN_DATA_DIR / "data.csv")
 
-if __name__ == '__main__':
+
+if __name__ == "__main__":
     logger = setup_logging()
     main()
