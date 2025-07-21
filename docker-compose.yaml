@@ -1,0 +1,9 @@
+services:
+  data:
+    build:
+      context: .
+      dockerfile: Dockerfile.data
+    volumes:
+    - "${ML_HOMELAB_ROOT}:${ML_HOMELAB_ROOT}:rw"
+    environment:
+      - ML_HOMELAB_ROOT=${ML_HOMELAB_ROOT}
