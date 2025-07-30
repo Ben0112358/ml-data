@@ -1,7 +1,6 @@
 import pathlib as pl
 import yaml
 import os
-from datetime import datetime
 
 ENV_VAR_ML_HOMELAB_ROOT = pl.Path(os.environ["ML_HOMELAB_ROOT"])
 ENV_VAR_PROJECT_NAME = os.environ["PROJECT_NAME"]
