@@ -64,7 +64,7 @@ docker-compose -f docker-compose.<project_name>.yaml -p "<project_name>_<mode>" 
 ```
 
 For more control, the following can be exported:
-```b
+```bash
 export RAW_DATA_DIR=/path/to/raw
 export CLEAN_DATA_DIR=/path/to/clean
 export LOGS_DIR=/path/to/logs
