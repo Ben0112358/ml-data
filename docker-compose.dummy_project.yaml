@@ -10,8 +10,8 @@ services:
         required: false
     environment:
       - ML_HOMELAB_ROOT=${ML_HOMELAB_ROOT}
-      - OUTPUT_SUFFIX=${OUTPUT_SUFFIX}
-      - RAW_DATA_DIR=${RAW_DATA_DIR:-}
-      - CLEAN_DATA_DIR=${CLEAN_DATA_DIR:-}
-      - LOGS_DIR=${LOGS_DIR:-}
+      - OUTPUT_SUFFIX=${OUTPUT_SUFFIX:-dummy_project_local}
+      - RAW_DATA_DIR=${RAW_DATA_DIR:-data/raw}
+      - CLEAN_DATA_DIR=${CLEAN_DATA_DIR:-data/clean}
+      - LOGS_DIR=${LOGS_DIR:-logs/data}
 
