@@ -1,5 +1,6 @@
 import subprocess
 
+
 def main():
     subprocess.run(
         [
@@ -11,6 +12,7 @@ def main():
             "--build",
         ],
     )
+
 
 if __name__ == "__main__":
     main()
