@@ -59,12 +59,16 @@ export ML_HOMELAB_ROOT=/absolute/path/to/ml-homelab
 
 ```bash
 export ML_HOMELAB_ROOT=/path/to/ml_homelab_root
+docker-compose -f docker-compose.<project_name>.yaml -p "<project_name>_<mode>" build --no-cache
+docker-compose -f docker-compose.<project_name>.yaml -p "<project_name>_<mode>" up
+```
+
+For more control, the following can be exported:
+```b
 export RAW_DATA_DIR=/path/to/raw
 export CLEAN_DATA_DIR=/path/to/clean
 export LOGS_DIR=/path/to/logs
 export OUTPUT_SUFFIX=some_suffix
-docker-compose -f docker-compose.<project_name>.yaml -p "<project_name>_<mode>" build --no-cache
-docker-compose -f docker-compose.<project_name>.yaml -p "<project_name>_<mode>" up
 ```
 
 ---
