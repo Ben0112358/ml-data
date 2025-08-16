@@ -13,13 +13,16 @@ if ENV_VAR_CONFIG_PATH and pl.Path(ENV_VAR_CONFIG_PATH).exists():
         CONFIG = yaml.safe_load(f)
 
 RAW_DATA_DIR = pl.Path(
-    CONFIG.get("paths", {}).get("raw_data") or (ENV_VAR_ML_HOMELAB_ROOT / os.environ.get("RAW_DATA_DIR", ""))
+    CONFIG.get("paths", {}).get("raw_data")
+    or (ENV_VAR_ML_HOMELAB_ROOT / os.environ.get("RAW_DATA_DIR", ""))
 )
 CLEAN_DATA_DIR = pl.Path(
-    CONFIG.get("paths", {}).get("clean_data") or (ENV_VAR_ML_HOMELAB_ROOT / os.environ.get("CLEAN_DATA_DIR", ""))
+    CONFIG.get("paths", {}).get("clean_data")
+    or (ENV_VAR_ML_HOMELAB_ROOT / os.environ.get("CLEAN_DATA_DIR", ""))
 )
 LOGS_DIR = pl.Path(
-    CONFIG.get("paths", {}).get("data_logs") or (ENV_VAR_ML_HOMELAB_ROOT / os.environ.get("LOGS_DIR", ""))
+    CONFIG.get("paths", {}).get("data_logs")
+    or (ENV_VAR_ML_HOMELAB_ROOT / os.environ.get("LOGS_DIR", ""))
 )
 
 for var_name, path in [
@@ -29,5 +32,6 @@ for var_name, path in [
 ]:
     if path.name == "":
         raise RuntimeError(
-            f"{var_name} must be set in CONFIG_PATH or as an environment variable."
+            f"{var_name} must be set in CONFIG_PATH or "
+            f"as an environment variable."
         )
