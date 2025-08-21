@@ -7,5 +7,5 @@ TICKERS = {
     "value": "ACWV",
     "quality": "QUAL",
     "min-vol": "ACWV",
-    "momentum": "IMTM"
+    "momentum": "IMTM",
 }

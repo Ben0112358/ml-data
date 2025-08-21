@@ -6,6 +6,7 @@ from ml_data.config import RAW_DATA_DIR, CLEAN_DATA_DIR, ENV_VAR_OUTPUT_SUFFIX
 from ml_data.utils import setup_logging
 from ml_data.investing_allocation_optimizer.utils import TICKERS
 
+
 def main():
     logger = logging.getLogger(__name__)
 
