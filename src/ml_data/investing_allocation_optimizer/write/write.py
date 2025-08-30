@@ -3,4 +3,4 @@ import pathlib as pl
 
 
 def write(df: pd.DataFrame, path: pl.Path):
-    df.to_csv(path)
+    df.to_csv(path, index=False)
