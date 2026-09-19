@@ -4,7 +4,7 @@ TICKERS = {
     "small-cap-us": "VB",
     "small-cap-non-us": "VSS",
     "growth": "IWY",
-    "value": "ACWV",
+    "value": "VLUE",
     "quality": "QUAL",
     "min-vol": "ACWV",
     "momentum": "IMTM",
