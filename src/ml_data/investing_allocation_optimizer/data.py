@@ -11,7 +11,7 @@ def main():
     logger = logging.getLogger(__name__)
 
     logger.info("Ingesting raw data")
-    df_raw = ingest(list(TICKERS.values()))
+    df_raw = ingest(TICKERS)
 
     logger.info("Writing raw data")
     write(
