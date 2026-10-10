@@ -122,6 +122,10 @@ src/ml_data/<new_project>/
 
 ---
 
+## board_meeting_protocol
+
+This project does not ingest a corpus. Ingest and clean are no-ops. The written file is a JSON marker with `corpus` set to `none`, so the later stages still have an artifact to load.
+
 ## Testing
 
 Run unit tests with Poetry:
