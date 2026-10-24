@@ -18,8 +18,8 @@ To get an overview of how all sub-repos in the full pipeline are tied together, 
 
 ```
 ml-data/
-├── docker-compose.dummy_project.yaml   # Docker Compose file for containerized run
-├── Dockerfile.dummy_project            # Dockerfile for containerized project
+├── docker-compose.<project_name>.yaml  # Docker Compose file per project (containerized run)
+├── Dockerfile.<project_name>           # Dockerfile per project
 ├── LICENSE
 ├── poetry.lock
 ├── pyproject.toml
@@ -34,9 +34,13 @@ ml-data/
 │       │   ├── utils/                  # Helper utilities (dummy data etc.)
 │       │   ├── __main__.py             # Local dev CLI entrypoint
 │       │   └── data.py                 # Core ingestion/clean/write pipeline
+│       ├── investing_allocation_optimizer/  # Same layout as dummy_project
+│       ├── board_meeting_protocol/     # Same layout; writes a corpus-none marker
 │       └── utils/                       # Shared utils (logging, etc.)
-└── tests/                              # Unit tests
+└── tests/                              # Unit tests, one folder per project plus utils/
 ```
+
+Each project has its own `docker-compose.<project_name>.yaml` and `Dockerfile.<project_name>` at the repo root. The projects currently in the repo are `dummy_project`, `investing_allocation_optimizer`, and `board_meeting_protocol`.
 
 ---
 
