@@ -70,8 +70,7 @@ def clean(df: pd.DataFrame) -> pd.DataFrame:
         binding,
         first_ret_dates[binding],
     )
-    for col in price_cols:
-        first_ret = rets[col].first_valid_index()
+    for col, first_ret in first_ret_dates.items():
         if first_ret is not None:
             logger.info("First return date for %s: %s", col, first_ret)
 
