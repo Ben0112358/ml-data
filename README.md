@@ -67,11 +67,19 @@ docker-compose -f docker-compose.<project_name>.yaml -p "<project_name>_<mode>" 
 docker-compose -f docker-compose.<project_name>.yaml -p "<project_name>_<mode>" up
 ```
 
-For more control, the following can be exported:
+For more control, the following can be exported. The directories are relative to `ML_HOMELAB_ROOT`, which is the only host folder mounted into the container. Any variable that is not set falls back to the default from `docker-compose.<project_name>.yaml`:
+
+| Variable | Default |
+|---|---|
+| `RAW_DATA_DIR` | `data/raw` |
+| `CLEAN_DATA_DIR` | `data/clean` |
+| `LOGS_DIR` | `logs/data` |
+| `OUTPUT_SUFFIX` | `<project_name>_local` |
+
 ```bash
-export RAW_DATA_DIR=/path/to/raw
-export CLEAN_DATA_DIR=/path/to/clean
-export LOGS_DIR=/path/to/logs
+export RAW_DATA_DIR=path/to/raw
+export CLEAN_DATA_DIR=path/to/clean
+export LOGS_DIR=path/to/logs
 export OUTPUT_SUFFIX=some_suffix
 ```
 
@@ -89,9 +97,9 @@ Or with more control over directories and outputs:
 
 ```bash
 export ML_HOMELAB_ROOT=/path/to/ml_homelab_root
-export RAW_DATA_DIR=/path/to/raw
-export CLEAN_DATA_DIR=/path/to/clean
-export LOGS_DIR=/path/to/logs
+export RAW_DATA_DIR=path/to/raw
+export CLEAN_DATA_DIR=path/to/clean
+export LOGS_DIR=path/to/logs
 export OUTPUT_SUFFIX=some_suffix
 
 python -m ml_data.<project_name>
@@ -120,7 +128,7 @@ src/ml_data/<new_project>/
 
 3. Add corresponding `docker-compose.<new_project>.yaml` and `Dockerfile.<new_project>`.
 
-4. Set project-specific configuration in `ml_data/config.py` or via environment variables (`RAW_DATA_DIR`, `CLEAN_DATA_DIR`, `OUTPUT_SUFFIX`).  
+4. Set project-specific configuration in `ml_data/config.py` or via environment variables (`RAW_DATA_DIR`, `CLEAN_DATA_DIR`, `LOGS_DIR`, `OUTPUT_SUFFIX`).  
 
 `src/ml_data/dummy_project` is a very simple project which can be studied to learn how it all ties together.
 
