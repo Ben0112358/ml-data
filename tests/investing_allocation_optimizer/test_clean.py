@@ -74,3 +74,28 @@ def test_clean_history_start_drops_asset_without_prices(monkeypatch):
     out = clean(df)
     assert "empty" not in out.columns
     assert len(out) == 3
+
+
+def test_clean_raises_when_no_price_columns():
+    df = pd.DataFrame(
+        {"Date": pd.date_range("2020-01-01", periods=3, freq="D")}
+    )
+    with pytest.raises(
+        ValueError, match="No price columns available to compute returns"
+    ):
+        clean(df)
+
+
+def test_clean_history_start_raises_when_all_assets_dropped(monkeypatch):
+    monkeypatch.setenv("ASSET_HISTORY_START", "2019-01-01")
+    df = pd.DataFrame(
+        {
+            "Date": pd.date_range("2020-01-01", periods=4, freq="D"),
+            "total-world": [None, None, 100.0, 101.0],
+            "late": [None, None, None, 10.0],
+        }
+    )
+    with pytest.raises(
+        ValueError, match="No price columns available to compute returns"
+    ):
+        clean(df)
