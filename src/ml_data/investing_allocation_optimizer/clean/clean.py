@@ -50,6 +50,9 @@ def clean(df: pd.DataFrame) -> pd.DataFrame:
         price_cols = kept
         df = df[["Date"] + price_cols]
 
+    if not price_cols:
+        raise ValueError("No price columns available to compute returns")
+
     df = df.set_index("Date")
     rets = df.pct_change()
     n_before = len(rets)
