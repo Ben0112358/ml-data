@@ -23,6 +23,10 @@ def clean(df: pd.DataFrame) -> pd.DataFrame:
     Default: keep only dates where every asset has a return (common window).
     Optional ASSET_HISTORY_START (YYYY-MM-DD): drop assets whose first
     valid price is after that date instead of truncating the whole panel.
+
+    Raises ValueError if the Date column is missing, if no price columns
+    remain (none in the input, or all dropped by ASSET_HISTORY_START), or
+    if no date has a return for every remaining asset.
     """
     df = df.copy()
     if "Date" not in df.columns:
