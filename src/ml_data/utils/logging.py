@@ -9,20 +9,18 @@ def setup_logging():
     logger.setLevel(logging.DEBUG)
 
     if not logger.handlers:
-        console_handler = logging.StreamHandler()
-        console_handler.setLevel(logging.INFO)
-        console_formatter = logging.Formatter(
+        formatter = logging.Formatter(
             "%(asctime)s - %(levelname)s - %(message)s"
         )
-        console_handler.setFormatter(console_formatter)
+
+        console_handler = logging.StreamHandler()
+        console_handler.setLevel(logging.INFO)
+        console_handler.setFormatter(formatter)
         logger.addHandler(console_handler)
 
         file_handler = logging.FileHandler(log_file_path)
         file_handler.setLevel(logging.DEBUG)
-        file_formatter = logging.Formatter(
-            "%(asctime)s - %(levelname)s - %(message)s"
-        )
-        file_handler.setFormatter(file_formatter)
+        file_handler.setFormatter(formatter)
         logger.addHandler(file_handler)
 
     return logger
